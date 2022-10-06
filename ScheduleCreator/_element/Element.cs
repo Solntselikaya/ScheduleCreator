@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ScheduleCreator._element
 {
-    abstract class Element: IElement
+    abstract class Element
     {
         protected string name = "Undefined";
         protected bool[,] workload = new bool[6, 7]; //массив 6 на 7 (6 дней и каждый день максимум 7 пар)
