@@ -21,6 +21,7 @@ namespace ScheduleCreator
             }
         }
 
+        //лучше не возвращать вот так словарь - другие классы могут в него вмешаться (нужен неизменяемый)
         public Dictionary<string, ITimetable> GetSchedule()
         {
             return schedule;

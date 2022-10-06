@@ -32,32 +32,41 @@ namespace ScheduleCreator
         private static void printDayTimetable(int day, string number, ITimetable timetable)
         {
             Study[,] nowTimetable = timetable.GetTimetable();
-            for (int i = 0; i < 7; i++)
+            for (int j = 0; j < 6; j++)
             {
-                switch (nowTimetable[day, i].GetType().ToString())
+                for (int i = 0; i < 7; i++)
                 {
-                    case "Lecture":
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        break;
-                    case "Seminar":
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        break;
-                    case "Practice":
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
-                        break;
-                    case "Lab":
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        break;
-                    case "Test":
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        break;
+                    if (nowTimetable[day, i].GetLesson() != null)
+                    {
+                        switch (nowTimetable[day, i].GetType().ToString())
+                        {
+                            case "Lecture":
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                break;
+                            case "Seminar":
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                break;
+                            case "Practice":
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                                break;
+                            case "Lab":
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                break;
+                            case "Test":
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                break;
+                        }
+                        Console.WriteLine(" ");
+                        Console.WriteLine($"Пара №{i++} - {nowTimetable[day, i].GetLesson().GetName()}");
+                        Console.WriteLine($"Аудитория №{nowTimetable[day, i].GetClassroom().GetName()}");
+                        Console.WriteLine($"Преподаватель - {nowTimetable[day, i].GetLesson().GetTeacher().GetName()}");
+                        Console.WriteLine(" ");
+                        Console.ResetColor();
+                    }
+                    else
+                        Console.WriteLine("Окно");
                 }
                 Console.WriteLine(" ");
-                Console.WriteLine($"Пара №{i} - {nowTimetable[day, i].GetLesson().GetName()}");
-                Console.WriteLine($"Аудитория №{nowTimetable[day, i].GetClassroom().GetName()}");
-                Console.WriteLine($"Преподаватель - {nowTimetable[day, i].GetLesson().GetTeacher().GetName()}");
-                Console.WriteLine(" ");
-                Console.ResetColor();
             }
         }
     }

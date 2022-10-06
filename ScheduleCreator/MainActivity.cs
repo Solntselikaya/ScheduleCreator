@@ -7,6 +7,12 @@ using ScheduleCreator._element;
 using ScheduleCreator._study;
 using ScheduleCreator._timetable;
 
+
+//сейчас более принято, чтобы методы что-то возвращали
+//(во многих местах)
+
+//мэйн попилить и расчленить! >:(
+
 namespace ScheduleCreator
 {
     internal class MainActivity
@@ -32,6 +38,9 @@ namespace ScheduleCreator
             }
         }
 
+        /// <summary>
+        /// +класс для ввода и +класс для парса
+        /// </summary>
         public static void AssignTeachers()
         {
             Console.WriteLine("Введите преподавателей, пары которых будут стоять в расписании (имена через знак запятой):");

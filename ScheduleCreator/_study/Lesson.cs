@@ -34,25 +34,16 @@ namespace ScheduleCreator._study
 
         public void SetTeacher(string teacherName)
         {
-            try
-            {
-                var res = InputData.inputTeachers.Find(x => x.GetName() == teacherName);
+            var res = InputData.inputTeachers.Find(x => x.GetName() == teacherName);
+            teacher = res;
 
-                /*
                 if (res == null)
                 {
+                //лучше выбрасыть эксепшн кастомного наследника(? в общем посмотреть и почитать)
                     throw new Exception("Нет такого преподавателя в базе!");
                     //Console.WriteLine("Нет такого преподавателя в базе!");
                     //return;
                 }
-                */
-
-                teacher = res;
-            }
-            catch (Exception ex)
-            {
-
-            }
             
         }
     }
