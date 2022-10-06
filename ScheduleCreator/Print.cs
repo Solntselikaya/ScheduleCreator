@@ -11,7 +11,7 @@ namespace ScheduleCreator
 {
     internal static class Print
     {
-        public static void PrintTimetableOfGroup(string number, Timetable timetable)
+        public static void PrintTimetableOfGroup(string number, ITimetable timetable)
         {
             Console.WriteLine($"Расписание группы №{number}");
             Console.WriteLine(" ");
@@ -29,7 +29,7 @@ namespace ScheduleCreator
             printDayTimetable(5, number, timetable);
         }
 
-        private static void printDayTimetable(int day, string number, Timetable timetable)
+        private static void printDayTimetable(int day, string number, ITimetable timetable)
         {
             Study[,] nowTimetable = timetable.GetTimetable();
             for (int i = 0; i < 7; i++)

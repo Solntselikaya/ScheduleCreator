@@ -22,6 +22,14 @@ namespace ScheduleCreator
             AssignStudyPlans();
 
             schedule = new Schedule();
+
+            Console.WriteLine("Составление завершено! Введите номер группы для вывода таблицы:");
+            string number;
+            while((number = Console.ReadLine()) != null)
+            {
+                Print.PrintTimetableOfGroup(number, schedule.GetSchedule()[number]);
+                Console.WriteLine("Введите следующий номер группы, для которой хотите вывести сгенерированную таблицу");
+            }
         }
 
         public static void AssignTeachers()
