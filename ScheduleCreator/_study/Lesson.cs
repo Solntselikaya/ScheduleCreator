@@ -22,6 +22,11 @@ namespace ScheduleCreator._study
             this.name = name;
         }
 
+        public string GetName()
+        {
+            return name;
+        }
+
         public Teacher GetTeacher()
         {
             return teacher;

@@ -47,7 +47,6 @@ namespace ScheduleCreator._timetable
                         teacher.DoBusy(i, j);
                         classroom.DoBusy(i, j);
 
-                        Console.WriteLine($"{i}, {j}");
                         return;
                     }
                 }

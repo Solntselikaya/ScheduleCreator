@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScheduleCreator._element;
 using ScheduleCreator._study;
+using ScheduleCreator._timetable;
 
 namespace ScheduleCreator
 {
@@ -19,31 +20,6 @@ namespace ScheduleCreator
             AssignTeachers();
             AssignClassrooms();
             AssignStudyPlans();
-
-            /*
-            foreach (var i in Enumerable.Range(100, 150).ToArray())
-            {
-                InputData.inputClassrooms.Add(new Classroom(i.ToString()));
-            }
-
-            InputData.inputStudyPlans.Add(new StudyPlan("972103",
-                new List<Tuple<Lesson, LType>> {
-                    new Tuple<Lesson, LType>(
-                        new Lesson("Пупкин", "Хуйня какая-то"), LType.Seminar) 
-                }));
-
-            InputData.inputStudyPlans.Add(new StudyPlan("962105",
-                new List<Tuple<Lesson, LType>> {
-                    new Tuple<Lesson, LType>(
-                        new Lesson("Залупкин", "Поебота какая-то"), LType.Lecture)
-                }));
-
-            InputData.inputStudyPlans.Add(new StudyPlan("5",
-                new List<Tuple<Lesson, LType>> {
-                    new Tuple<Lesson, LType>(
-                        new Lesson("Чел", "Трэш какой-то"), LType.Seminar)
-                }));
-            */
 
             schedule = new Schedule();
         }
@@ -144,7 +120,10 @@ namespace ScheduleCreator
                         Console.WriteLine("В вводе имени пары/имени преподавателя была ошибка! Пара не внесена");
                 }
 
-                InputData.inputStudyPlans.Add(new StudyPlan(group, currPairs));
+                if (currPairs.Count > 0)
+                    InputData.inputStudyPlans.Add(new StudyPlan(group, currPairs));
+                else
+                    Console.WriteLine("План не добавлен, т.к. не введены пары!");
             }
         }  
     }

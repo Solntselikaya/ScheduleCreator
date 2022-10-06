@@ -20,5 +20,10 @@ namespace ScheduleCreator
                 schedule.Add(plan.numOfGroup, new Timetable(plan));
             }
         }
+
+        public Dictionary<string, ITimetable> GetSchedule()
+        {
+            return schedule;
+        }
     }
 }

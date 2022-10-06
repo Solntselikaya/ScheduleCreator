@@ -19,5 +19,15 @@ namespace ScheduleCreator._study
             this.classroom = classroom;
             this.lessonType = lessonType;
         }
+
+        public Lesson GetLesson()
+        {
+            return this.lesson;
+        }
+
+        public Classroom GetClassroom()
+        {
+            return classroom;
+        }
     }
 }
